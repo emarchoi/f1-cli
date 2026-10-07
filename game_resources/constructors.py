@@ -13,7 +13,6 @@ constructors = {
         "engine": "Mercedes",
         "power": 97,
         "wcc": 0
-        
     },
 
     "redbull": {
@@ -77,5 +76,5 @@ constructors = {
         "engine": "Ferrari",
         "power": 74,
         "wcc": 0
-    },
+    }
 }
