@@ -18,7 +18,8 @@ def main():
         print("\n1. View Current Standings")
         print("2. Simulate Next Race")
         print("3. Reset Season")
-        print("4. Save and Exit")
+        print("4. Reset Game Data")
+        print("5. Save and Exit")
         
         choice = input("\nSelect an option: ")
         
@@ -38,9 +39,16 @@ def main():
         elif choice == "3":
             confirm = input("Are you sure you want to reset the season? (y/n): ")
             if confirm.lower() == "y":
-                reset_data(championship)
+                reset_season(championship)
                 print("Season reset successful.")
         elif choice == "4":
+            confirm = input("Reset game whole data? (y/n): ")
+            if confirm.lower() == "y":
+                reset_data(championship)
+                DataManager.save_game(championship)
+                print("Game data reset successful.")
+                sys.exit()
+        elif choice == "5":
             DataManager.save_game(championship)
             print("Game saved. Goodbye!")
             sys.exit()
@@ -97,11 +105,21 @@ def get_standings(championship):
     sorted_constructors = sorted(championship.constructors, key=lambda x: x.points, reverse=True)
     return sorted_drivers, sorted_constructors
 
-def reset_data(championship):
+def reset_season(championship):
     for driver in championship.drivers:
         driver.points = 0
     for constructor in championship.constructors:
         constructor.points = 0
+    championship.current_round = 0
+    return championship
+
+def reset_data(championship):
+    for driver in championship.drivers:
+        driver.points = 0
+        driver.wdc = 0
+    for constructor in championship.constructors:
+        constructor.points = 0
+        constructor.wcc = 0
     championship.current_round = 0
     return championship
 
