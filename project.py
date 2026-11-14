@@ -16,16 +16,23 @@ def main():
             print("Season Finished!")
 
         print("\n1. View Current Standings")
-        print("2. Simulate Next Race")
-        print("3. Reset Season")
-        print("4. Reset Game Data")
-        print("5. Save and Exit")
+        print("2. View WDC and WCC Count")
+        print("3. Simulate Next Race")
+        # print("3. Start Next Season")
+        print("----------------------------")
+        print("4. Reset Season")
+        print("5. Reset Game Data")
+        print("6. Save and Exit")
         
         choice = input("\nSelect an option: ")
         
         if choice == "1":
             display_standings(championship)
-        elif choice == "2":
+
+        if choice == "2":
+            display_wcc_wdc(championship)
+
+        elif choice == "3":
             if championship.current_round < len(championship.tracks):
                 results = simulate_race(championship)
                 display_race_results(results)
@@ -36,19 +43,19 @@ def main():
                     print(f"{constructors[0].name} wins the Constructors' Championship!")
             else:
                 print("The season is already over!")
-        elif choice == "3":
+        elif choice == "4":
             confirm = input("Are you sure you want to reset the season? (y/n): ")
             if confirm.lower() == "y":
                 reset_season(championship)
                 print("Season reset successful.")
-        elif choice == "4":
+        elif choice == "5":
             confirm = input("Reset game whole data? (y/n): ")
             if confirm.lower() == "y":
                 reset_data(championship)
                 DataManager.save_game(championship)
                 print("Game data reset successful.")
                 sys.exit()
-        elif choice == "5":
+        elif choice == "6":
             DataManager.save_game(championship)
             print("Game saved. Goodbye!")
             sys.exit()
@@ -133,6 +140,20 @@ def display_standings(championship):
     print("\n--- Constructor Standings ---")
     for i, c in enumerate(constructors, 1):
         print(f"{i}. {c.name:30} | {c.points} pts")
+
+def display_wcc_wdc(championship):
+    # can add d.points c.points for like "Current Season Points"
+
+    sorted_drivers = sorted(championship.drivers, key=lambda d: (d.wdc), reverse=True)
+    sorted_constructors = sorted(championship.constructors, key=lambda c: (c.wcc), reverse=True)
+
+    print("\n--- World Drivers' Championship (WDC) Counts ---")
+    for i, d in enumerate(sorted_drivers, 1):
+        print(f"{i:2}. {d.name:20} | {d.constructor_name:30} | {d.wdc} WDC")
+
+    print("\n--- World Constructors' Championship (WCC) Counts ---")
+    for i, c in enumerate(sorted_constructors, 1):
+        print(f"{i:2}. {c.name:30} | {c.wcc} WCC")
 
 def display_race_results(results):
 
