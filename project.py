@@ -15,40 +15,6 @@ def main():
         else:
             print("Season Finished!")
 
-            if championship.current_round == 24:
-
-                wdc_winner = None
-                wcc_winner = None
-
-                highest_point = -1
-
-                for d in championship.drivers:
-                    if d.points > highest_point:
-                        highest_point = d.points
-                        wdc_winner = d
-
-                constructor_points = {}
-
-                for d in championship.drivers:
-                    if d.constructor_name not in constructor_points:
-                        constructor_points[d.constructor_name] = 0
-
-                    constructor_points[d.constructor_name] += d.points
-
-                highest_constructor_points = - 1
-
-                for constructor_name in constructor_points:
-                    if constructor_points[constructor_name] > highest_constructor_points:
-                        highest_constructor_points = constructor_points[constructor_name]
-                        wcc_winner = constructor_name
-
-                wdc_winner.wdc += 1
-
-                for c in championship.constructors:
-                    if c.name == wcc_winner:
-                        c.wcc += 1
-                        break
-
         print("\n1. View Current Standings")
         print("2. Simulate Next Race")
         print("3. Reset Season")
@@ -62,6 +28,11 @@ def main():
             if championship.current_round < len(championship.tracks):
                 results = simulate_race(championship)
                 display_race_results(results)
+
+                if championship.current_round == len(championship.tracks):
+                    drivers, constructors = get_standings(championship)
+                    print(f"\n{drivers[0].name} wins the Drivers' Championship!")
+                    print(f"{constructors[0].name} wins the Constructors' Championship!")
             else:
                 print("The season is already over!")
         elif choice == "3":
@@ -108,6 +79,8 @@ def simulate_race(championship):
             constructor.points += pts
             
     championship.current_round += 1
+
+    if championship.current_round == len(championship)
     return results
 
 def get_standings(championship):
