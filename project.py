@@ -58,7 +58,7 @@ def main():
                 if next_season.lower() == "y":
                     reset_season(championship)
                     championship.season_count += 1
-                    
+
         elif choice == "4":
             confirm = input("Are you sure you want to reset the season? (y/n): ")
             if confirm.lower() == "y":
@@ -144,6 +144,7 @@ def reset_data(championship):
         constructor.points = 0
         constructor.wcc = 0
     championship.current_round = 0
+    championship.season_count = 0
     return championship
 
 def display_standings(championship):
