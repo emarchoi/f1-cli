@@ -15,6 +15,40 @@ def main():
         else:
             print("Season Finished!")
 
+            if championship.current_round == 24:
+
+                wdc_winner = None
+                wcc_winner = None
+
+                highest_point = -1
+
+                for d in championship.drivers:
+                    if d.points > highest_point:
+                        highest_point = d.points
+                        wdc_winner = d
+
+                constructor_points = {}
+
+                for d in championship.drivers:
+                    if d.constructor_name not in constructor_points:
+                        constructor_points[d.constructor_name] = 0
+
+                    constructor_points[d.constructor_name] += d.points
+
+                highest_constructor_points = - 1
+
+                for constructor_name in constructor_points:
+                    if constructor_points[constructor_name] > highest_constructor_points:
+                        highest_constructor_points = constructor_points[constructor_name]
+                        wcc_winner = constructor_name
+
+                wdc_winner.wdc += 1
+
+                for c in championship.constructors:
+                    if c.name == wcc_winner:
+                        c.wcc += 1
+                        break
+
         print("\n1. View Current Standings")
         print("2. Simulate Next Race")
         print("3. Reset Season")
