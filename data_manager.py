@@ -27,9 +27,17 @@ class DataManager:
                 )
             except (json.JSONDecodeError, KeyError) as e:
                 print(f"Error loading save file: {e}. Seeding new data.")
-                return cls.seed_initial_data()
+
+                championship = cls.seed_initial_data()
+                cls.save_game(championship)
+                return championship 
         else:
-            return cls.seed_initial_data()
+            print("No save file found. Creating a new season...")
+
+            championship = cls.seed_initial_data()
+            cls.save_game(championship)
+
+            return championship
 
     @classmethod
     def save_game(cls, championship):
