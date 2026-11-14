@@ -6,7 +6,9 @@ from models import Championship
 def main():
     championship = DataManager.load_game()
 
- 
+    ''' To-do: 1. Add Qualifying + Bonus
+               2. Add Lap Times from tracks[laps] and tracks[time] make it like f1 time 
+               3. Table formatting'''
     
     while True:
 
