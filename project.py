@@ -86,7 +86,7 @@ def simulate_race(championship):
             wdc_winner.wdc += 1
 
         if championship.constructors:
-            wcc_winner = max(championship.constructor, key=lambda c: c.points)
+            wcc_winner = max(championship.constructors, key=lambda c: c.points)
             wcc_winner.wcc +=1
 
     return results
