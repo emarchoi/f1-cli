@@ -80,7 +80,15 @@ def simulate_race(championship):
             
     championship.current_round += 1
 
-    if championship.current_round == len(championship)
+    if championship.current_round == len(championship.tracks):
+        if championship.drivers:
+            wdc_winner = max(championship.drivers, key=lambda d: d.points)
+            wdc_winner.wdc += 1
+
+        if championship.constructors:
+            wcc_winner = max(championship.constructor, key=lambda c: c.points)
+            wcc_winner.wcc +=1
+            
     return results
 
 def get_standings(championship):
