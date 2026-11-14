@@ -60,11 +60,12 @@ class Track:
 
 
 class Championship:
-    def __init__(self, drivers=None, constructors=None, tracks=None, current_round=0):
+    def __init__(self, drivers=None, constructors=None, tracks=None, current_round=0, season_count=0):
         self.drivers = drivers if drivers else []
         self.constructors = constructors if constructors else []
         self.tracks = tracks if tracks else []
         self.current_round = current_round
+        self.season_count = season_count
 
     def get_constructor(self, name):
         for constructor in self.constructors:

@@ -7,6 +7,9 @@ def main():
     championship = DataManager.load_game()
     
     while True:
+
+        season_count = 1
+
         print("\n--- F1 2026 Season Simulation ---")
         print(f"Current Progress: Round {championship.current_round}/{len(championship.tracks)}")
         if championship.current_round < len(championship.tracks):
@@ -18,11 +21,10 @@ def main():
         print("\n1. View Current Standings")
         print("2. View WDC and WCC Count")
         print("3. Simulate Next Race")
-        # print("3. Start Next Season")
         print("----------------------------")
-        print("4. Reset Season")
-        print("5. Reset Game Data")
-        print("6. Save and Exit")
+        print("5. Reset Season")
+        print("6. Reset Game Data")
+        print("7. Save and Exit")
         
         choice = input("\nSelect an option: ")
         
