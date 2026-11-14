@@ -26,7 +26,7 @@ def main():
         print("5. Reset Game Data")
         print("6. Save and Exit")
         
-        choice = input("\nSelect an option: ")
+        choice = input("\nSelect an option: ").strip()
         
         if choice == "1":
             display_standings(championship)
@@ -43,8 +43,22 @@ def main():
                     drivers, constructors = get_standings(championship)
                     print(f"\n{drivers[0].name} wins the Drivers' Championship!")
                     print(f"{constructors[0].name} wins the Constructors' Championship!")
+
+                    next_season = input("Start next season? (y/n): ").strip()
+
+                    if next_season.lower() == "y":
+                        reset_season(championship)
+                        championship.season_count += 1
+
             else:
                 print("The season is already over!")
+
+                next_season = input("Start next season? (y/n): ").strip()
+
+                if next_season.lower() == "y":
+                    reset_season(championship)
+                    championship.season_count += 1
+                    
         elif choice == "4":
             confirm = input("Are you sure you want to reset the season? (y/n): ")
             if confirm.lower() == "y":
