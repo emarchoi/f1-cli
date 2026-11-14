@@ -5,10 +5,10 @@ from models import Championship
 
 def main():
     championship = DataManager.load_game()
+
+ 
     
     while True:
-
-        season_count = 1
 
         print(f"\n--- F1 2026 Season {championship.season_count + 1} Simulation ---")
         print(f"Current Progress: Round {championship.current_round}/{len(championship.tracks)}")
