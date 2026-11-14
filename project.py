@@ -127,7 +127,7 @@ def display_race_results(results):
         print(f"{i:2}. {driver.name:20} | +{pts} pts")
     if len(results) > 10:
         for i, driver in enumerate(results[10:], 11):
-            print(f"{i:2}. {driver.name:20} 0 pts")
+            print(f"{i:2}. {driver.name:20} | 0 pts")
 
 if __name__ == "__main__":
     main()
