@@ -88,7 +88,7 @@ def simulate_race(championship):
         if championship.constructors:
             wcc_winner = max(championship.constructor, key=lambda c: c.points)
             wcc_winner.wcc +=1
-            
+
     return results
 
 def get_standings(championship):
@@ -117,12 +117,17 @@ def display_standings(championship):
         print(f"{i}. {c.name:30} | {c.points} pts")
 
 def display_race_results(results):
+
+    points_map = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
+
     print("\n--- Race Results ---")
     for i, driver in enumerate(results[:10], 1):
-        print(f"{i}. {driver.name:20} - Points Awarded")
+
+        pts = points_map[i - 1]
+        print(f"{i:2}. {driver.name:20} | +{pts} pts")
     if len(results) > 10:
         for i, driver in enumerate(results[10:], 11):
-            print(f"{i}. {driver.name:20}")
+            print(f"{i:2}. {driver.name:20} +{pts} pts")
 
 if __name__ == "__main__":
     main()
