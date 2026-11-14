@@ -88,5 +88,6 @@ class DataManager:
             drivers=drivers_list,
             constructors=constructors_list,
             tracks=tracks_list,
-            current_round=0
+            current_round=0,
+            season_count=0
         )
