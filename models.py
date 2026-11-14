@@ -78,5 +78,6 @@ class Championship:
             "drivers": [d.to_dict() for d in self.drivers],
             "constructors": [c.to_dict() for c in self.constructors],
             "tracks": [t.to_dict() for t in self.tracks],
-            "current_round": self.current_round
+            "current_round": self.current_round,
+            "season_count": self.season_count
         }
