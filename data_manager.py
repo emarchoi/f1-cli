@@ -23,7 +23,7 @@ class DataManager:
                     drivers=drivers,
                     constructors=constructors,
                     tracks=tracks,
-                    current_round=data["current_round"]
+                    current_round=data["current_round"],
                     season_count=data["season_count"]
                 )
             except (json.JSONDecodeError, KeyError) as e:

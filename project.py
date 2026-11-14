@@ -10,7 +10,7 @@ def main():
 
         season_count = 1
 
-        print("\n--- F1 2026 Season Simulation ---")
+        print(f"\n--- F1 2026 Season {championship.season_count + 1} Simulation ---")
         print(f"Current Progress: Round {championship.current_round}/{len(championship.tracks)}")
         if championship.current_round < len(championship.tracks):
             next_track = championship.tracks[championship.current_round]
@@ -21,10 +21,10 @@ def main():
         print("\n1. View Current Standings")
         print("2. View WDC and WCC Count")
         print("3. Simulate Next Race")
-        print("----------------------------")
-        print("5. Reset Season")
-        print("6. Reset Game Data")
-        print("7. Save and Exit")
+        print("---------------------------")
+        print("4. Reset Season")
+        print("5. Reset Game Data")
+        print("6. Save and Exit")
         
         choice = input("\nSelect an option: ")
         
