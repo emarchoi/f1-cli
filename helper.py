@@ -40,7 +40,7 @@ def display_race_results(results):
         pts_str = f"+{pts} pts" if pts > 0 else "0 pts"
         print(f"{i:2}.  {driver.name:<20} {entry['total_time_display']:<14} {pts_str}")
 
-def display_championship(championship):
+def display_championships(championship):
     # can add d.points c.points for like "Current Season Points"
 
     sorted_drivers = sorted(championship.drivers, key=lambda d: (d.wdc), reverse=True)
