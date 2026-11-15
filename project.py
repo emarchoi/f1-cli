@@ -22,7 +22,12 @@ def main():
 
         print("\n1. View Current Standings")
         print("2. View WDC and WCC Count")
-        print("3. Simulate Next Race")
+
+        if championship.current_round == len(championship.tracks):
+            print("3. Start Next Season")
+        else:
+            print("3. Simulate Next Race")
+
         print("---------------------------")
         print("4. Reset Season")
         print("5. Reset Game Data")
@@ -46,20 +51,12 @@ def main():
                     print(f"\n{drivers[0].name} wins the Drivers' Championship!")
                     print(f"{constructors[0].name} wins the Constructors' Championship!")
 
-                    next_season = input("Start next season? (y/n): ").strip()
-
-                    if next_season.lower() == "y":
-                        reset_season(championship)
-                        championship.season_count += 1
+                    next_season(championship)
 
             else:
                 print("The season is already over!")
 
-                next_season = input("Start next season? (y/n): ").strip()
-
-                if next_season.lower() == "y":
-                    reset_season(championship)
-                    championship.season_count += 1
+                next_season(championship)
 
         elif choice == "4":
             confirm = input("Are you sure you want to reset the season? (y/n): ")
@@ -137,6 +134,14 @@ def reset_season(championship):
         constructor.points = 0
     championship.current_round = 0
     return championship
+
+def next_season(championship):
+    next_season = input("Start next season? (y/n): ").strip()
+
+    if next_season.lower() == "y":
+        reset_season(championship)
+        championship.season_count += 1
+
 
 def reset_data(championship):
     for driver in championship.drivers:
