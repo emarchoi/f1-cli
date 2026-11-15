@@ -22,7 +22,7 @@ def display_standings(championship):
     drivers = sorted(championship.drivers, key=lambda d: (d.points), reverse=True)
     constructors = sorted(championship.constructors, key=lambda c: (c.points), reverse=True)
 
-    drivers = [
+    drivers_rows = [
         [
             i,
             d.name,
@@ -33,7 +33,7 @@ def display_standings(championship):
     ]
 
     print("===== DRIVER STANDINGS =====")
-    print(tabulate(drivers,
+    print(tabulate(drivers_rows,
                    headers=["POS", "DRIVER", "CONSTRUCTOR", "PTS",],
                    tablefmt="grid", stralign="left", numalign="right"))
 
