@@ -4,6 +4,7 @@ from data_manager import DataManager
 from helper import (
     POINTS_MAP,
     display_championships,
+    display_qualifying_results,
     display_race_results,
     display_standings,
     race_time,
@@ -84,9 +85,42 @@ def main():
         else:
             print("Invalid choice, please try again.")
 
-def simulate_race(championship):
+def simulate_qualifying(championship):
     if championship.current_round >= len(championship.tracks):
         return []
+
+    qualifying = []
+
+    for driver in championship.drivers:
+        constructor = championship.get_constructor(driver.constructor_name)
+        power_bonus = constructor.power * 0.5 if constructor else 0
+        variance = random.uniform(-4, 4)
+        quali_score = driver.skill + power_bonus + variance
+        qualifying.append({
+            "driver": driver,
+            "quali_score": quali_score,
+        })
+
+    qualifying.sort(key=lambda x: x["quali_score"], reverse=True)
+
+    total_drivers = len(qualifying)
+    for grid_pos, entry in enumerate(qualifying, 1):
+        entry["grid_pos"] = grid_pos
+        entry["grid_bonus"] = round((total_drivers - grid_pos) * 0.25, 2)
+
+    return qualifying
+
+def simulate_race(championship, quali_results=None):
+    if championship.current_round >= len(championship.tracks):
+        return []
+
+    if quali_results is None:
+        quali_results = simulate_qualifying(championship)
+
+    quali_dict = {
+        entry["driver"].name: (entry["grid_pos"], entry["grid_bonus"])
+        for entry in quali_results
+    }
 
     track = championship.tracks[championship.current_round]
     race_entries = []
@@ -94,9 +128,10 @@ def simulate_race(championship):
     for driver in championship.drivers:
         constructor = championship.get_constructor(driver.constructor_name)
         power_bonus = constructor.power * 0.5 if constructor else 0
+        grid_pos, grid_bonus = quali_dict.get(driver.name, (len(championship.drivers), 0.0))
         variance = random.uniform(-5, 5)
-        score = driver.skill + power_bonus + variance
 
+        score = driver.skill + power_bonus + variance
         pace = max(1.0, track.time + (145 - score) * 0.03)
         total_time = pace * track.laps
 
