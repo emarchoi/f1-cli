@@ -106,7 +106,7 @@ def simulate_race(championship):
             "total_time_display": race_time(total_time),
         })
     
-    race_entries.sort(key=lambda :x x["total_time"])
+    race_entries.sort(key=lambda x: x["total_time"])
     
     for i in range(min(len(race_entries), len(POINTS_MAP))):
         
