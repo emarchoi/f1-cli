@@ -39,3 +39,17 @@ def display_race_results(results):
         pts = POINTS_MAP[i - 1] if i <= len(POINTS_MAP) else 0
         pts_str = f"+{pts} pts" if pts > 0 else "0 pts"
         print(f"{i:2}.  {driver.name:<20} {entry['total_time_display']:<14} {pts_str}")
+
+def display_championship(championship):
+    # can add d.points c.points for like "Current Season Points"
+
+    sorted_drivers = sorted(championship.drivers, key=lambda d: (d.wdc), reverse=True)
+    sorted_constructors = sorted(championship.constructors, key=lambda c: (c.wcc), reverse=True)
+
+    print("\n--- World Drivers' Championship (WDC) Counts ---")
+    for i, d in enumerate(sorted_drivers, 1):
+        print(f"{i:2}. {d.name:20} | {d.constructor_name:30} | {d.wdc} WDC")
+
+    print("\n--- World Constructors' Championship (WCC) Counts ---")
+    for i, c in enumerate(sorted_constructors, 1):
+        print(f"{i:2}. {c.name:30} | {c.wcc} WCC")
