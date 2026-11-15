@@ -29,12 +29,12 @@ def display_standings(championship):
     for i, c in enumerate(constructors, 1):
         print(f"{i:2}. {c.name:30} | {c.points:3} pts")
 
-def display_qualifying_results(results):
-    
+def display_qualifying_results(qualifying_results):
+
     print("\n--- Qualifying Grid ---")
     print(f"{'Grid':<5} {'Driver':<20} {'Constructor':<30} {'Race Bonus'}")
     print("-" * 69)
-    for entry in results:
+    for entry in qualifying_results:
         driver = entry["driver"]
         print(
             f"P{entry['grid_pos']:<4} {driver.name:<20} "
