@@ -1,7 +1,13 @@
 import random
 import sys
 from data_manager import DataManager
-from models import Championship
+from helper import (
+    POINTS_MAP,
+    display_championships,
+    display_race_results,
+    display_standings,
+    race_time,
+)
 
 def main():
     championship = DataManager.load_game()
@@ -39,10 +45,11 @@ def main():
             display_standings(championship)
 
         if choice == "2":
-            display_wcc_wdc(championship)
+            display_championships(championship)
 
         elif choice == "3":
             if championship.current_round < len(championship.tracks):
+                
                 results = simulate_race(championship)
                 display_race_results(results)
 
@@ -154,43 +161,43 @@ def reset_data(championship):
     championship.season_count = 0
     return championship
 
-def display_standings(championship):
-    drivers, constructors = get_standings(championship)
+# def display_standings(championship):
+#     drivers, constructors = get_standings(championship)
     
-    print("\n--- Driver Standings ---")
-    for i, d in enumerate(drivers, 1):
-        print(f"{i}. {d.name:20} | {d.constructor_name:30} | {d.points} pts")
+#     print("\n--- Driver Standings ---")
+#     for i, d in enumerate(drivers, 1):
+#         print(f"{i}. {d.name:20} | {d.constructor_name:30} | {d.points} pts")
         
-    print("\n--- Constructor Standings ---")
-    for i, c in enumerate(constructors, 1):
-        print(f"{i}. {c.name:30} | {c.points} pts")
+#     print("\n--- Constructor Standings ---")
+#     for i, c in enumerate(constructors, 1):
+#         print(f"{i}. {c.name:30} | {c.points} pts")
 
-def display_wcc_wdc(championship):
-    # can add d.points c.points for like "Current Season Points"
+# def display_wcc_wdc(championship):
+#     # can add d.points c.points for like "Current Season Points"
 
-    sorted_drivers = sorted(championship.drivers, key=lambda d: (d.wdc), reverse=True)
-    sorted_constructors = sorted(championship.constructors, key=lambda c: (c.wcc), reverse=True)
+#     sorted_drivers = sorted(championship.drivers, key=lambda d: (d.wdc), reverse=True)
+#     sorted_constructors = sorted(championship.constructors, key=lambda c: (c.wcc), reverse=True)
 
-    print("\n--- World Drivers' Championship (WDC) Counts ---")
-    for i, d in enumerate(sorted_drivers, 1):
-        print(f"{i:2}. {d.name:20} | {d.constructor_name:30} | {d.wdc} WDC")
+#     print("\n--- World Drivers' Championship (WDC) Counts ---")
+#     for i, d in enumerate(sorted_drivers, 1):
+#         print(f"{i:2}. {d.name:20} | {d.constructor_name:30} | {d.wdc} WDC")
 
-    print("\n--- World Constructors' Championship (WCC) Counts ---")
-    for i, c in enumerate(sorted_constructors, 1):
-        print(f"{i:2}. {c.name:30} | {c.wcc} WCC")
+#     print("\n--- World Constructors' Championship (WCC) Counts ---")
+#     for i, c in enumerate(sorted_constructors, 1):
+#         print(f"{i:2}. {c.name:30} | {c.wcc} WCC")
 
-def display_race_results(results):
+# def display_race_results(results):
 
-    points_map = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
+#     points_map = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
 
-    print("\n--- Race Results ---")
-    for i, driver in enumerate(results[:10], 1):
+#     print("\n--- Race Results ---")
+#     for i, driver in enumerate(results[:10], 1):
 
-        pts = points_map[i - 1]
-        print(f"{i:2}. {driver.name:20} | +{pts} pts")
-    if len(results) > 10:
-        for i, driver in enumerate(results[10:], 11):
-            print(f"{i:2}. {driver.name:20} | 0 pts")
+#         pts = points_map[i - 1]
+#         print(f"{i:2}. {driver.name:20} | +{pts} pts")
+#     if len(results) > 10:
+#         for i, driver in enumerate(results[10:], 11):
+#             print(f"{i:2}. {driver.name:20} | 0 pts")
 
 if __name__ == "__main__":
     main()
