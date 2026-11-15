@@ -49,7 +49,7 @@ def main():
 
         elif choice == "3":
             if championship.current_round < len(championship.tracks):
-                
+
                 results = simulate_race(championship)
                 display_race_results(results)
 
@@ -89,26 +89,29 @@ def simulate_race(championship):
         return []
 
     track = championship.tracks[championship.current_round]
-    scores = []
+    race_entries = []
     
     for driver in championship.drivers:
         constructor = championship.get_constructor(driver.constructor_name)
-        # Performance logic: Driver skill + 0.5 * Constructor power + random factor
         power_bonus = constructor.power * 0.5 if constructor else 0
         variance = random.uniform(-5, 5)
         score = driver.skill + power_bonus + variance
-        scores.append((driver, score))
+
+        pace = max(1.0, track.time + (145 - score) * 0.03)
+        total_time = pace * track.laps
+
+        race_entries.append({
+            "driver": driver,
+            "total_time": total_time,
+            "total_time_display": race_time(total_time),
+        })
     
-    # Sort by score descending
-    scores.sort(key=lambda x: x[1], reverse=True)
+    race_entries.sort(key=lambda :x x["total_time"])
     
-    results = [s[0] for s in scores]
-    
-    # Award points (standard F1 points system)
-    points_map = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
-    for i in range(min(len(results), len(points_map))):
-        driver = results[i]
-        pts = points_map[i]
+    for i in range(min(len(race_entries), len(POINTS_MAP))):
+        
+        driver = race_entries[i]["driver"]
+        pts = POINTS_MAP[i]
         driver.points += pts
         
         constructor = championship.get_constructor(driver.constructor_name)
@@ -126,10 +129,10 @@ def simulate_race(championship):
             wcc_winner = max(championship.constructors, key=lambda c: c.points)
             wcc_winner.wcc +=1
 
-    return results
+    return race_entries
 
 def get_standings(championship):
-    # Sort drivers and constructors by points
+
     sorted_drivers = sorted(championship.drivers, key=lambda x: x.points, reverse=True)
     sorted_constructors = sorted(championship.constructors, key=lambda x: x.points, reverse=True)
     return sorted_drivers, sorted_constructors
