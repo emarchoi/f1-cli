@@ -51,7 +51,10 @@ def main():
         elif choice == "3":
             if championship.current_round < len(championship.tracks):
 
-                results = simulate_race(championship)
+                qualifying_results = simulate_qualifying(championship)
+                display_qualifying_results(qualifying_results)
+
+                results = simulate_race(championship, qualifying_results)
                 display_race_results(results)
 
                 if championship.current_round == len(championship.tracks):
