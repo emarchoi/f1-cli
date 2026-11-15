@@ -131,12 +131,14 @@ def simulate_race(championship, quali_results=None):
         grid_pos, grid_bonus = quali_dict.get(driver.name, (len(championship.drivers), 0.0))
         variance = random.uniform(-5, 5)
 
-        score = driver.skill + power_bonus + variance
+        score = driver.skill + power_bonus + grid_bonus + variance
         pace = max(1.0, track.time + (145 - score) * 0.03)
         total_time = pace * track.laps
 
         race_entries.append({
             "driver": driver,
+            "grid_pos": grid_pos,
+            "grid_bonus": grid_bonus,
             "total_time": total_time,
             "total_time_display": race_time(total_time),
         })
