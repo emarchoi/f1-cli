@@ -29,4 +29,13 @@ def display_standings(championship):
     for i, c in enumerate(constructors, 1):
         print(f"{i:2}. {c.name:30} | {c.points:3} pts")
 
-# def display_race_results
+def display_race_results(results):
+
+    print("\n--- Race Results ---")
+    print(f"{'Pos':<4} {'Driver':<20} {'Total Time':<14} {'Points'}")
+    print("-" * 48)
+    for i, entry in enumerate(results, 1):
+        driver = entry["driver"]
+        pts = POINTS_MAP[i - 1] if i <= len(POINTS_MAP) else 0
+        pts_str = f"+{pts} pts" if pts > 0 else "0 pts"
+        print(f"{i:2}.  {driver.name:<20} {entry['total_time_display']:<14} {pts_str}")
