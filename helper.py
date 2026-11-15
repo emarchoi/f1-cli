@@ -37,6 +37,21 @@ def display_standings(championship):
                    headers=["POS", "DRIVER", "CONSTRUCTOR", "PTS",],
                    tablefmt="grid", stralign="left", numalign="right"))
 
+    constructors_rows = [
+        [
+            i,
+            c.name,
+            c.engine,
+            c.points,
+        ]
+        for i, c in enumerate(constructors, 1)
+    ]
+
+    print("\n===== CONSTRUCTORS STANDINGS =====")
+    print(tabulate(constructors_rows,
+                   headers=["POS", "TEAM", "ENGINE", "PTS",],
+                   tablefmt="grid", stralign="left", numalign="right"))
+
 def display_qualifying_results(qualifying_results):
 
     print("\n--- Qualifying Grid ---")
