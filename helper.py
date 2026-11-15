@@ -22,13 +22,20 @@ def display_standings(championship):
     drivers = sorted(championship.drivers, key=lambda d: (d.points), reverse=True)
     constructors = sorted(championship.constructors, key=lambda c: (c.points), reverse=True)
 
-    print("\n--- Driver Standings ---")
-    for i, d in enumerate(drivers, 1):
-        print(f"{i:2}. {d.name:20} | {d.constructor_name:30} | {d.points:3} pts")
+    drivers = [
+        [
+            i,
+            d.name,
+            d.constructor_name,
+            d.points,
+        ]
+        for i, d in enumerate(drivers, 1)
+    ]
 
-    print("\n--- Constructor Standings ---")
-    for i, c in enumerate(constructors, 1):
-        print(f"{i:2}. {c.name:30} | {c.points:3} pts")
+    print("===== DRIVER STANDINGS =====")
+    print(tabulate(drivers,
+                   headers=["POS", "DRIVER", "CONSTRUCTOR", "PTS",],
+                   tablefmt="grid", stralign="left", numalign="right"))
 
 def display_qualifying_results(qualifying_results):
 
