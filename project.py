@@ -7,7 +7,7 @@ from helper import (
     display_qualifying_results,
     display_race_results,
     display_standings,
-    race_time,
+    format_race_time,
 )
 
 def main():
@@ -142,7 +142,7 @@ def simulate_race(championship, quali_results=None):
             "grid_pos": grid_pos,
             "grid_bonus": grid_bonus,
             "total_time": total_time,
-            "total_time_display": race_time(total_time),
+            "total_time_display": format_race_time(total_time),
         })
     
     race_entries.sort(key=lambda x: x["total_time"])

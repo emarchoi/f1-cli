@@ -3,7 +3,7 @@ from tabulate import tabulate
 
 POINTS_MAP = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
 
-def race_time(seconds):
+def format_race_time(seconds):
 
     total_ms = round(seconds * 1000)
     hours = total_ms // 3_600_000
@@ -16,6 +16,8 @@ def race_time(seconds):
     if hours > 0:
         return f"{hours}:{minutes:02d}:{secs:02d}:{ms:03d}"
     return f"{minutes}:{secs:02d}:{ms:03d}"
+
+# def 
 
 def display_standings(championship):
 
