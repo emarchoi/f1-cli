@@ -110,24 +110,26 @@ def display_championships(championship):
         [
             d.name,
             d.constructor_name,
-            d.wdc
+            d.wdc,
         ]
         for i, d in enumerate(drivers, 1)
     ]
-    print("\n===== WORLD DRIVERS' CHAMPIONSHIP (WDC) COUNTS =====")
+    print("\n===== WORLD DRIVERS' CHAMPIONSHIP (WDC) =====")
     print(tabulate(drivers_row,
                    headers=["DRIVER", "CONSTRUCTOR", "WDC"],
                    tablefmt="grid", stralign="left", numalign="right"))
 
 
-    sorted_constructors = sorted(championship.constructors, key=lambda c: (c.wcc), reverse=True)
+    constructors = sorted(championship.constructors, key=lambda c: (c.wcc), reverse=True)
     constructors_row = [
         [
             c.name,
             c.engine,
+            c.wcc,
         ]
+        for i, c in enumerate(constructors, 1)
     ]
-
-    print("\n--- World Constructors' Championship (WCC) Counts ---")
-    for i, c in enumerate(sorted_constructors, 1):
-        print(f"{i:2}. {c.name:30} | {c.wcc} WCC")
+    print("\n===== WORLD CONSTRUCTORS' CHAMPIONSHIP (WCC) =====")
+    print(tabulate(constructors_row,
+                   headers=["CONSTRUCTOR", "ENGINE", "WCC"],
+                   tablefmt="grid", stralign="left", numalign="right"))
