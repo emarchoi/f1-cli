@@ -62,26 +62,45 @@ def display_standings(championship):
 
 def display_qualifying_results(qualifying_results):
 
-    print("\n--- Qualifying Grid ---")
-    print(f"{'Grid':<5} {'Driver':<20} {'Constructor':<30} {'Race Bonus'}")
-    print("-" * 69)
-    for entry in qualifying_results:
-        driver = entry["driver"]
-        print(
-            f"P{entry['grid_pos']:<4} {driver.name:<20} "
-            f"{driver.constructor_name:<30} +{entry['grid_bonus']:.2f}"
-        )
+    quali = [
+        [
+            f"P{entry['grid_pos']}",
+            entry["driver"].name,
+            entry["driver"].constructor_name,
+            f"+{entry['grid_bonus']:.2f}",
+        ]
+        for entry in qualifying_results
+    ]
+
+    print("\n===== QUALIFYING CLASSIFICATION =====")
+    print(tabulate(quali,
+                   headers=["GRID", "DRIVER", "CONSTRUCTOR", "BONUS"],
+                   tablefmt="grid", stralign="left", numalign="right"))
 
 def display_race_results(results):
 
-    print("\n--- Race Results ---")
-    print(f"{'Pos':<4} {'Driver':<20} {'Total Time':<14} {'Points'}")
-    print("-" * 48)
+    race = []
     for i, entry in enumerate(results, 1):
+  
+        grid_pos = entry["grid_pos"]
         driver = entry["driver"]
+
         pts = POINTS_MAP[i - 1] if i <= len(POINTS_MAP) else 0
         pts_str = f"+{pts} pts" if pts > 0 else "0 pts"
-        print(f"{i:2}.  {driver.name:<20} {entry['total_time_display']:<14} {pts_str}")
+
+        race.append([
+            i,
+            f"P{grid_pos}",
+            driver.name,
+            driver.constructor_name,
+            entry["total_time_display"],
+            pts_str,
+        ])
+
+    print("\n===== RACE CLASSIFICATION =====")
+    print(tabulate(race, 
+                    headers=["POS", "GRID POS", "DRIVER", "CONSTRUCTOR", "TIME", "POINTS"],
+                    tablefmt="grid", stralign="left", numalign="right"))
 
 def display_championships(championship):
     # can add d.points c.points for like "Current Season Points"
