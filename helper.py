@@ -38,7 +38,9 @@ def display_standings(championship):
         for i, d in enumerate(drivers, 1)
     ]
 
-    print("===== DRIVER STANDINGS =====")
+    print(f"\n{'+'}{'-' * 76}{'+'}")
+    print(f"|{'DRIVER STANDINGS':^76}|")
+    print(f"{'+'}{'-' * 76}{'+'}")
     print(tabulate(drivers_rows,
                    headers=["POS", "DRIVER", "CONSTRUCTOR", "PTS", "GAP"],
                    tablefmt="grid", stralign="left", numalign="right"))
