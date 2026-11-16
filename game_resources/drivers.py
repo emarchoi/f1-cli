@@ -2,23 +2,23 @@
 
 drivers = {
     "mclaren": [
-        {"name": "Lando Norris", "skill": 94, "wdc": 0},
+        {"name": "Lando Norris", "skill": 94, "wdc": 1},
         {"name": "Oscar Piastri", "skill": 91, "wdc": 0},
     ],
 
     "mercedes": [
         {"name": "George Russell", "skill": 93, "wdc": 0},
-        {"name": "Kimi Antonelli", "skill": 83, "wdc": 0},
+        {"name": "Kimi Antonelli", "skill": 83, "wdc": 1},
     ],
 
     "redbull": [
-        {"name": "Max Verstappen", "skill": 95, "wdc": 0},
+        {"name": "Max Verstappen", "skill": 95, "wdc": 4},
         {"name": "Isack Hadjar", "skill": 83, "wdc": 0},
     ],
 
     "ferrari": [
         {"name": "Charles Leclerc", "skill": 92, "wdc": 0},
-        {"name": "Lewis Hamilton", "skill": 91, "wdc": 0},
+        {"name": "Lewis Hamilton", "skill": 91, "wdc": 7},
     ],
 
     "williams": [
@@ -37,7 +37,7 @@ drivers = {
     ],
 
     "aston martin": [
-        {"name": "Fernando Alonso", "skill": 90, "wdc": 0},
+        {"name": "Fernando Alonso", "skill": 90, "wdc": 2},
         {"name": "Lance Stroll", "skill": 77, "wdc": 0},
     ],
 
