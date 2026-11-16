@@ -76,7 +76,9 @@ def display_qualifying_results(qualifying_results):
         for entry in qualifying_results
     ]
 
-    print("\n===== QUALIFYING CLASSIFICATION =====")
+    print(f"\n{'+'}{'-' * 70}{'+'}")
+    print(f"|{'QUALIFYING CLASSIFICATION':^70}|")
+    print(f"{'+'}{'-' * 70}{'+'}")
     print(tabulate(quali,
                    headers=["GRID", "DRIVER", "CONSTRUCTOR", "BONUS"],
                    tablefmt="grid", stralign="left", numalign="right"))
@@ -101,7 +103,9 @@ def display_race_results(results):
             pts_str,
         ])
 
-    print("\n===== RACE CLASSIFICATION =====")
+    print(f"\n{'+'}{'-' * 97}{'+'}")
+    print(f"|{'RACE CLASSIFICATION':^97}|")
+    print(f"{'+'}{'-' * 97}{'+'}")
     print(tabulate(race, 
                     headers=["POS", "GRID POS", "DRIVER", "CONSTRUCTOR", "TIME", "POINTS"],
                     tablefmt="grid", stralign="left", numalign="right"))
