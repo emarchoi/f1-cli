@@ -14,7 +14,8 @@ def main():
     championship = DataManager.load_game()
 
     ''' To-do: 1. Table formatting using tabulate package
-               2. Adding like thread sleep, eg. pause for 5secs for quali and race'''
+               2. Adding like thread sleep, eg. pause for 5secs for quali and race
+               3. Reset data specific (revert to original/reset all to 0)'''
     
     while True:
 
