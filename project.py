@@ -21,13 +21,13 @@ def main():
     while True:
 
         title = f"F1 SEASON {championship.season_count + 1} SIMULATION"
-        print(f"\n{'+'}{'-' * 51}{'+'}")
-        print(f"|{title:^51}|")
-        print(f"{'+'}{'-' * 51}{'+'}")
+        print(f"\n{'+'}{'-' * 70}{'+'}")
+        print(f"|{title:^70}|")
+        print(f"{'+'}{'-' * 70}{'+'}")
 
         if championship.current_round < len(championship.tracks):
             next_track = championship.tracks[championship.current_round]
-            next_race = f"{next_track.track_name}, {next_track.country}"
+            next_race = f"R{championship.current_round + 1} - {next_track.track_name}, {next_track.country}"
             option_3 = "Simulate Next Race"
         else:
             next_race = "Season Finished"
