@@ -32,25 +32,23 @@ def main():
 
         season_data = [
             ["Current Progress", f"Round {championship.current_round}/{len(championship.tracks)}"],
-            ["Next Race", next_race]
+            ["Next Race", next_race],
+            ["", ""],
+            [1, "View Current Standings"],
+            [2, "View Championship Titles"],
+            [3, option_3],
+            [4, "Reset Season"],
+            [5, "Reset Game Data"],
+            [6, "Save and Exit"],
         ]
 
-        print(tabulate(season_data, tablefmt="grid"))
-
-        print("\n1. View Current Standings")
-        print("2. View WDC and WCC Count")
-
-        if championship.current_round == len(championship.tracks):
-            print("3. Start Next Season")
-        else:
-            print("3. Simulate Next Race")
-
-        print("---------------------------")
-        print("4. Reset Season")
-        print("5. Reset Game Data")
-        print("6. Save and Exit")
-        
-        choice = input("\nSelect an option: ").strip()
+        print(tabulate(
+            season_data,
+            tablefmt="grid",
+            numalign="right",
+            stralign="left"
+        ))
+        choice = input("Select an option: ").strip()
         
         if choice == "1":
             display_standings(championship)
