@@ -105,12 +105,23 @@ def display_race_results(results):
 def display_championships(championship):
     # can add d.points c.points for like "Current Season Points"
 
-    sorted_drivers = sorted(championship.drivers, key=lambda d: (d.wdc), reverse=True)
-    sorted_constructors = sorted(championship.constructors, key=lambda c: (c.wcc), reverse=True)
+    drivers = sorted(championship.drivers, key=lambda d: (d.wdc), reverse=True)
+    drivers_row = [
+        [
+            i,
+            d.name,
+            d.constructor_name,
+            d.wdc
+        ]
+        for i, d in enumerate(drivers, 1)
+    ]
+    print("\n===== WORLD DRIVERS' CHAMPIONSHIP (WDC) COUNTS =====")
+    print(tabulate(drivers_row,
+                   headers=["RANK", "DRIVER", "CONSTRUCTOR", "WDC"],
+                   tablefmt="grid", stralign="left", numalign="right"))
 
-    print("\n--- World Drivers' Championship (WDC) Counts ---")
-    for i, d in enumerate(sorted_drivers, 1):
-        print(f"{i:2}. {d.name:20} | {d.constructor_name:30} | {d.wdc} WDC")
+
+    sorted_constructors = sorted(championship.constructors, key=lambda c: (c.wcc), reverse=True)
 
     print("\n--- World Constructors' Championship (WCC) Counts ---")
     for i, c in enumerate(sorted_constructors, 1):
