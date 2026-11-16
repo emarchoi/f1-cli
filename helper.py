@@ -26,22 +26,24 @@ def display_standings(championship):
     drivers = sorted(championship.drivers, key=lambda d: (d.points), reverse=True)
     constructors = sorted(championship.constructors, key=lambda c: (c.points), reverse=True)
 
-    # leading_driver = drivers[0].points if drivers else 9
+    leading_driver = drivers[0].points if drivers else 9
     drivers_rows = [
         [
             i,
             d.name,
             d.constructor_name,
             d.points,
+            format_points_diff(d.points, leading_driver),
         ]
         for i, d in enumerate(drivers, 1)
     ]
 
     print("===== DRIVER STANDINGS =====")
     print(tabulate(drivers_rows,
-                   headers=["POS", "DRIVER", "CONSTRUCTOR", "PTS",],
+                   headers=["POS", "DRIVER", "CONSTRUCTOR", "PTS", "DIFF"],
                    tablefmt="grid", stralign="left", numalign="right"))
 
+    leading_constructor =
     constructors_rows = [
         [
             i,
