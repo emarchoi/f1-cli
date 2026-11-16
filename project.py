@@ -53,7 +53,7 @@ def main():
         if choice == "1":
             display_standings(championship)
 
-        if choice == "2":
+        elif choice == "2":
             display_championships(championship)
 
         elif choice == "3":
