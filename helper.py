@@ -33,7 +33,7 @@ def display_standings(championship):
             d.name,
             d.constructor_name,
             d.points,
-            f"+{format_points_diff(d.points, leading_driver)}",
+            format_points_diff(d.points, leading_driver),
         ]
         for i, d in enumerate(drivers, 1)
     ]
@@ -50,14 +50,14 @@ def display_standings(championship):
             c.name,
             c.engine,
             c.points,
-            f"+{format_points_diff(c.points, leading_constructor)}",
+            format_points_diff(c.points, leading_constructor),
         ]
         for i, c in enumerate(constructors, 1)
     ]
 
     print("\n===== CONSTRUCTORS STANDINGS =====")
     print(tabulate(constructors_rows,
-                   headers=["POS", "TEAM", "ENGINE", "PTS", "DIFF"],
+                   headers=["POS", "TEAM", "ENGINE", "PTS", "GAP"],
                    tablefmt="grid", stralign="left", numalign="right"))
 
 def display_qualifying_results(qualifying_results):
