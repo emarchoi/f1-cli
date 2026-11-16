@@ -8,6 +8,7 @@ from helper import (
     display_race_results,
     display_standings,
     format_race_time,
+    tabulate,
 )
 
 def main():
@@ -19,13 +20,22 @@ def main():
     
     while True:
 
-        print(f"\n--- F1 2026 Season {championship.season_count + 1} Simulation ---")
-        print(f"Current Progress: Round {championship.current_round}/{len(championship.tracks)}")
+        print(f"\n--- F1 Season {championship.season_count + 1} Simulation ---")
+
         if championship.current_round < len(championship.tracks):
             next_track = championship.tracks[championship.current_round]
-            print(f"Next Race: {next_track.track_name}, {next_track.country}")
+            next_race = f"{next_track.track_name}, {next_track.country}"
+            option_3 = "Simulate Next Race"
         else:
-            print("Season Finished!")
+            next_race = "Season Finished"
+            option_3 = "Start Next Season"
+
+        season_data = [
+            ["Current Progress", f"Round {championship.current_round}/{len(championship.tracks)}"],
+            ["Next Race", next_race]
+        ]
+
+        print(tabulate(season_data, tablefmt="grid"))
 
         print("\n1. View Current Standings")
         print("2. View WDC and WCC Count")
