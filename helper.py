@@ -19,28 +19,28 @@ def format_race_time(seconds):
 
 def format_points_diff(points, leader_points):
     diff = leader_points - points
-    return "Leader" if diff == 0 else str(diff)
+    return "Leader" if diff == 0 else f"+{diff}"
 
 def display_standings(championship):
 
     drivers = sorted(championship.drivers, key=lambda d: (d.points), reverse=True)
     constructors = sorted(championship.constructors, key=lambda c: (c.points), reverse=True)
 
-    leading_driver = drivers[0].points if drivers else 9
+    leading_driver = drivers[0].points if drivers else 0
     drivers_rows = [
         [
             i,
             d.name,
             d.constructor_name,
             d.points,
-            format_points_diff(d.points, leading_driver),
+            f"+{format_points_diff(d.points, leading_driver)}",
         ]
         for i, d in enumerate(drivers, 1)
     ]
 
     print("===== DRIVER STANDINGS =====")
     print(tabulate(drivers_rows,
-                   headers=["POS", "DRIVER", "CONSTRUCTOR", "PTS", "DIFF"],
+                   headers=["POS", "DRIVER", "CONSTRUCTOR", "PTS", "GAP"],
                    tablefmt="grid", stralign="left", numalign="right"))
 
     leading_constructor = constructors[0].points if constructors else 0
@@ -50,7 +50,7 @@ def display_standings(championship):
             c.name,
             c.engine,
             c.points,
-            format_points_diff(c.points, leading_constructor)
+            f"+{format_points_diff(c.points, leading_constructor)}",
         ]
         for i, c in enumerate(constructors, 1)
     ]
