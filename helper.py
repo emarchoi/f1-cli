@@ -17,13 +17,16 @@ def format_race_time(seconds):
         return f"{hours}:{minutes:02d}:{secs:02d}:{ms:03d}"
     return f"{minutes}:{secs:02d}:{ms:03d}"
 
-# def 
+def format_points_diff(points, leader_points):
+    diff = points - leader_points
+    return "Leader" if diff == 0 else str(diff)
 
 def display_standings(championship):
 
     drivers = sorted(championship.drivers, key=lambda d: (d.points), reverse=True)
     constructors = sorted(championship.constructors, key=lambda c: (c.points), reverse=True)
 
+    # leading_driver = drivers[0].points if drivers else 9
     drivers_rows = [
         [
             i,
