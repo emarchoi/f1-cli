@@ -108,7 +108,6 @@ def display_championships(championship):
     drivers = sorted(championship.drivers, key=lambda d: (d.wdc), reverse=True)
     drivers_row = [
         [
-            i,
             d.name,
             d.constructor_name,
             d.wdc
@@ -117,11 +116,17 @@ def display_championships(championship):
     ]
     print("\n===== WORLD DRIVERS' CHAMPIONSHIP (WDC) COUNTS =====")
     print(tabulate(drivers_row,
-                   headers=["RANK", "DRIVER", "CONSTRUCTOR", "WDC"],
+                   headers=["DRIVER", "CONSTRUCTOR", "WDC"],
                    tablefmt="grid", stralign="left", numalign="right"))
 
 
     sorted_constructors = sorted(championship.constructors, key=lambda c: (c.wcc), reverse=True)
+    constructors_row = [
+        [
+            c.name,
+            c.engine,
+        ]
+    ]
 
     print("\n--- World Constructors' Championship (WCC) Counts ---")
     for i, c in enumerate(sorted_constructors, 1):
