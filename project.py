@@ -20,7 +20,10 @@ def main():
     
     while True:
 
-        print(f"\n--- F1 Season {championship.season_count + 1} Simulation ---")
+        title = f"F1 SEASON {championship.season_count + 1} SIMULATION"
+        print(f"\n{'+'}{'-' * 51}{'+'}")
+        print(f"|{title:^51}|")
+        print(f"{'+'}{'-' * 51}{'+'}")
 
         if championship.current_round < len(championship.tracks):
             next_track = championship.tracks[championship.current_round]
@@ -42,12 +45,7 @@ def main():
             [6, "Save and Exit"],
         ]
 
-        print(tabulate(
-            season_data,
-            tablefmt="grid",
-            numalign="right",
-            stralign="left"
-        ))
+        print(tabulate(season_data, tablefmt="grid"))
         choice = input("Select an option: ").strip()
         
         if choice == "1":
