@@ -135,9 +135,9 @@ def display_championships(championship):
         ]
         for i, c in enumerate(constructors, 1)
     ]
-
-    
-    print("\n===== WORLD CONSTRUCTORS' CHAMPIONSHIP (WCC) =====")
+    print(f"\n{'+'}{'-' * 52}{'+'}")
+    print(f"|{'WORLD CONSTRUCTORS\' CHAMPIONSHIP (WCC)':^52}|")
+    print(f"{'+'}{'-' * 52}{'+'}")
     print(tabulate(constructors_row,
                    headers=["CONSTRUCTOR", "ENGINE", "WCC"],
                    tablefmt="grid", stralign="left", numalign="right"))
