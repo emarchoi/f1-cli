@@ -5,35 +5,35 @@ constructors = {
         "name": "McLaren Mastercard F1 Team",
         "engine": "Mercedes",
         "power": 93,
-        "wcc": 0
+        "wcc": 10
     },
 
     "mercedes": {
         "name": "Mercedes-AMG Petronas F1 Team",
         "engine": "Mercedes",
         "power": 97,
-        "wcc": 0
+        "wcc": 9
     },
 
     "redbull": {
         "name": "Oracle Red Bull Racing",
         "engine": "Red Bull Ford",
         "power": 92,
-        "wcc": 0
+        "wcc": 6
     },
 
     "ferrari": {
         "name": "Scuderia Ferrari HP",
         "engine": "Ferrari",
         "power": 94,
-        "wcc": 0
+        "wcc": 16
     },
 
     "williams": {
         "name": "Atlassian Williams F1 Team",
         "engine": "Mercedes",
         "power": 76,
-        "wcc": 0
+        "wcc": 9
     },
 
     "racing bulls": {
@@ -47,7 +47,7 @@ constructors = {
         "name": "BWT Alpine F1 Team",
         "engine": "Mercedes",
         "power": 84,
-        "wcc": 0
+        "wcc": 2
     },
 
     "aston martin": {
