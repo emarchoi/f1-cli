@@ -118,7 +118,10 @@ def display_championships(championship):
         ]
         for i, d in enumerate(drivers, 1)
     ]
-    print("\n===== WORLD DRIVERS' CHAMPIONSHIP (WDC) =====")
+
+    print(f"\n{'+'}{'-' * 55}{'+'}")
+    print(f"|{'WORLD DRIVERS\' CHAMPIONSHIP (WDC)':^55}|")
+    print(f"{'+'}{'-' * 55}{'+'}")
     print(tabulate(drivers_row,
                    headers=["DRIVER", "CONSTRUCTOR", "WDC"],
                    tablefmt="grid", stralign="left", numalign="right"))
@@ -133,6 +136,8 @@ def display_championships(championship):
         ]
         for i, c in enumerate(constructors, 1)
     ]
+
+    
     print("\n===== WORLD CONSTRUCTORS' CHAMPIONSHIP (WCC) =====")
     print(tabulate(constructors_row,
                    headers=["CONSTRUCTOR", "ENGINE", "WCC"],
