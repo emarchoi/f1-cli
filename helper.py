@@ -118,7 +118,6 @@ def display_championships(championship):
         ]
         for i, d in enumerate(drivers, 1)
     ]
-
     print(f"\n{'+'}{'-' * 55}{'+'}")
     print(f"|{'WORLD DRIVERS\' CHAMPIONSHIP (WDC)':^55}|")
     print(f"{'+'}{'-' * 55}{'+'}")
