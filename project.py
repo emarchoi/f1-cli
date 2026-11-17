@@ -15,9 +15,8 @@ from helper import (
 def main():
     championship = DataManager.load_game()
 
-    ''' To-do: 1. Adding like thread sleep, eg. pause for 5secs for quali and race
-               2. Reset data specific (revert to original/reset all to 0) in the future
-               3. Double check spacing, for feedbacks etc.'''
+    ''' To-do: 1. Reset data specific (revert to original/reset all to 0) in the future
+               2. Double check spacing, for feedbacks etc.'''
     
     while True:
 
