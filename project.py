@@ -37,12 +37,12 @@ def main():
             ["Current Progress", f"Round {championship.current_round}/{len(championship.tracks)}"],
             ["Next Race", next_race],
             ["", ""],
-            [1, "View Current Standings"],
-            [2, "View Championship Titles"],
-            [3, option_3],
-            [4, "Reset Season"],
-            [5, "Reset Game Data"],
-            [6, "Save and Exit"],
+            ["[1]", "View Current Standings"],
+            ["[2]", "View Championship Titles"],
+            ["[3]", option_3],
+            ["[4]", "Reset Season"],
+            ["[5]", "Reset Game Data"],
+            ["[6]", "Save and Exit"],
         ]
 
         print(tabulate(season_data, tablefmt="grid"))
