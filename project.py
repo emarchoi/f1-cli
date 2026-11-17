@@ -9,6 +9,7 @@ from helper import (
     display_standings,
     format_race_time,
     tabulate,
+    countdown,
 )
 
 def main():
@@ -94,12 +95,18 @@ def main():
         else:
             print("Invalid choice, please try again.")
 
-def simulate_qualifying(championship):
+def simulate_qualifying(championship, delay=5):
     if championship.current_round >= len(championship.tracks):
         return []
 
-    qualifying = []
+    track = championship.tracks[championship.current_round]
+    print(f"\n+{'-' * 70}+")
+    print(f"| {'Simulating Qualifying at: ' + track.track_name:^68} |")
+    print(f"+{'-' * 70}+") 
+    if delay > 0:
+        countdown("Simulating Qualifying", delay)
 
+    qualifying = []
     for driver in championship.drivers:
         constructor = championship.get_constructor(driver.constructor_name)
         power_bonus = constructor.power * 0.5 if constructor else 0
@@ -119,7 +126,7 @@ def simulate_qualifying(championship):
 
     return qualifying
 
-def simulate_race(championship, quali_results=None):
+def simulate_race(championship, quali_results=None, delay=5):
     if championship.current_round >= len(championship.tracks):
         return []
 
