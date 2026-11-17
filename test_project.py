@@ -84,10 +84,23 @@ def test_get_standings(sample_championship):
     assert[d.name for d in sorted_drivers] == [ 
         "Max Verstappen",
         "Charles Leclerc",
-        "George Russel",
+        "George Russell",
     ]
     assert[c.name for c in sorted_constructors] == [
         "Oracle Red Bull Racing",
         "Scuderia Ferrari HP",
         "Mercedes-AMG Petronas F1 Team",
     ]
+
+def test_reset_data(sample_championship):
+    sample_championship.current_round = 2
+    sample_championship.drivers[0].points = 43
+    sample_championship.drivers[1].wdc = 4
+    sample_championship.constructors[0].points = 43
+    sample_championship.constructors[0].wcc = 1
+
+    reset_data(sample_championship)
+
+    assert sample_championship.current_round == 0
+    assert all(d.points == 0 and d.wdc == 0 for d in sample_championship.drivers)
+    assert all(c.points == 0 and c.wcc == 0 for c in sample_championship.constructors)
