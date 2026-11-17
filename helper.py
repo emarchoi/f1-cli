@@ -1,5 +1,6 @@
 # for helper functions
 from tabulate import tabulate
+import time
 
 POINTS_MAP = [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]
 
@@ -16,6 +17,17 @@ def format_race_time(seconds):
     if hours > 0:
         return f"{hours}:{minutes:02d}:{secs:02d}:{ms:03d}"
     return f"{minutes}:{secs:02d}:{ms:03d}"
+
+def countdown(message, seconds=5):
+    print(f"\n+{'-' * 70}+")
+
+    for remaining in range(seconds, 0, -1):
+        print(f"\r| {message} ({remaining}s)...", end="", flush=True)
+        time.sleep(1)
+
+    print(f"\r| {message + ' Done!':^68}|")
+    print(f"+{'-' * 70}+")
+    
 
 def format_points_diff(points, leader_points):
     diff = leader_points - points
