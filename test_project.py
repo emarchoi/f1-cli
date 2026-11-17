@@ -30,3 +30,14 @@ def sample_championship():
         current_round=0,
     )
 
+def test_simulate_qualifying(sample_championship):
+    quali = simulate_qualifying(sample_championship, delay=0)
+
+    assert len(quali) == 3
+    assert [entry["grid_pos"] for entry in quali] == [1, 2, 3]
+    assert [entry["grid_bonus"] for entry in quali] == [0.50, 0.25, 0.00]
+    assert quali[0]["quali_score"] >= quali[1]["quali_score"] >= quali[2]["quali_score"]
+
+    # Finished season returns an empty list
+    sample_championship.current_round = len(sample_championship.tracks)
+    assert simulate_qualifying(sample_championship, delay=0) == []
