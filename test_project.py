@@ -69,3 +69,25 @@ def test_simulate_race(sample_championship):
     assert wcc_champ.wcc == initial_wcc[wcc_champ.name] + 1
 
     assert simulate_race(sample_championship, delay=0) == []
+
+def test_get_standings(sample_championship):
+    sample_championship.drivers[0].points = 18
+    sample_championship.drivers[1].points = 50
+    sample_championship.drivers[2].points = 30
+
+    sample_championship.constructors[0].points = 18
+    sample_championship.constructors[1].points = 50
+    sample_championship.constructors[2].points = 30   
+
+    sorted_drivers, sorted_constructors = get_standings(sample_championship)
+
+    assert[d.name for d in sorted_drivers] == [ 
+        "Max Verstappen",
+        "Charles Leclerc",
+        "George Russel",
+    ]
+    assert[c.name for c in sorted_constructors] == [
+        "Oracle Red Bull Racing",
+        "Scuderia Ferrari HP",
+        "Mercedes-AMG Petronas F1 Team",
+    ]
