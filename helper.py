@@ -19,7 +19,7 @@ def format_race_time(seconds):
     return f"{minutes}:{secs:02d}:{ms:03d}"
 
 def countdown(message, seconds=5):
-    print(f"\n+{'-' * 70}+")
+    print(f"+{'-' * 70}+")
 
     for remaining in range(seconds, 0, -1):
         print(f"\r| {message} ({remaining}s)...", end="", flush=True)
