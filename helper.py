@@ -25,7 +25,7 @@ def countdown(message, seconds=5):
         print(f"\r| {message} ({remaining}s)...", end="", flush=True)
         time.sleep(1)
 
-    print(f"\r| {message + ' Done!':^68}|")
+    print(f"\r| {message + ' Done!':^69}|")
     print(f"+{'-' * 70}+")
     
 
