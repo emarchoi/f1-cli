@@ -126,12 +126,19 @@ def simulate_qualifying(championship, delay=5):
 
     return qualifying
 
-def simulate_race(championship, quali_results=None, delay=5):
+def simulate_race(championship, quali_results=None, delay=10):
     if championship.current_round >= len(championship.tracks):
         return []
 
     if quali_results is None:
         quali_results = simulate_qualifying(championship)
+
+    track = championship.tracks[championship.current_round]
+    print(f"\n+{'-' * 70}+")
+    print(f"| {'Simulating Race at: ' + track.track_name:^68} |")
+    print(f"+{'-' * 70}+") 
+    if delay > 0:
+        countdown("Simulating Race", delay)
 
     quali_dict = {
         entry["driver"].name: (entry["grid_pos"], entry["grid_bonus"])
