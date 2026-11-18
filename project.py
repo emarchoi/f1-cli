@@ -7,6 +7,7 @@ from helper import (
     display_qualifying_results,
     display_race_results,
     display_standings,
+    display_season_winner,
     format_race_time,
     tabulate,
     countdown,
@@ -65,8 +66,7 @@ def main():
 
                 if championship.current_round == len(championship.tracks):
                     drivers, constructors = get_standings(championship)
-                    print(f"\n{drivers[0].name} wins the Drivers' Championship!")
-                    print(f"{constructors[0].name} wins the Constructors' Championship!")
+                    display_season_winner(drivers[0].name, constructors[0].name)
 
                     next_season(championship)
 
@@ -102,8 +102,8 @@ def simulate_qualifying(championship, delay=5):
     print(f"\n+{'-' * 70}+")
     print(f"| {'Simulating Qualifying at: ' + track.track_name:^68} |")
     print(f"+{'-' * 70}+") 
-    if delay > 0:
-        countdown("Simulating Qualifying", delay)
+    # if delay > 0:
+    #     countdown("Simulating Qualifying", delay)
 
     qualifying = []
     for driver in championship.drivers:
@@ -136,8 +136,8 @@ def simulate_race(championship, quali_results=None, delay=10):
     print(f"\n+{'-' * 70}+")
     print(f"| {'Simulating Race at: ' + track.track_name:^68} |")
     print(f"+{'-' * 70}+") 
-    if delay > 0:
-        countdown("Simulating Race", delay)
+    # if delay > 0:
+    #     countdown("Simulating Race", delay)
 
     quali_dict = {
         entry["driver"].name: (entry["grid_pos"], entry["grid_bonus"])
