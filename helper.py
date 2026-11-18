@@ -122,6 +122,15 @@ def display_race_results(results):
                     headers=["POS", "GRID POS", "DRIVER", "CONSTRUCTOR", "TIME", "POINTS"],
                     tablefmt="grid", stralign="left", numalign="right"))
 
+def display_season_winner(driver, constructor):
+    print(f"\n{'+'}{'-' * 97}{'+'}")
+    print(f"|{{driver}} wins the Drivers\' Championship!:^97}}|")
+    print(f"{'+'}{'-' * 97}{'+'}")
+
+    print(f"\n{'+'}{'-' * 97}{'+'}")
+    print(f"|{{constructor}} wins the Constructors\' Championship!!:^97}}|")
+    print(f"{'+'}{'-' * 97}{'+'}")
+
 def display_championships(championship):
     # can add d.points c.points for like "Current Season Points"
 
