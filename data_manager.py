@@ -6,7 +6,7 @@ from game_resources.constructors import constructors as raw_constructors
 from game_resources.tracks import tracks as raw_tracks
 
 class DataManager:
-    SAVE_FILE = "f1_cli_data.json"
+    SAVE_FILE = "./game_file/f1_cli_data.json"
 
     @classmethod
     def load_game(cls):
