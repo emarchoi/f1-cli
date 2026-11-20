@@ -7,7 +7,7 @@ The simulation models the latest Formula 1 season across 24 Grand Prix rounds, 1
 # How to Play F1-CLI Game Simulator
 
 ### Quick Setup
-```
+```python
 # 1. Clone the repository
 git clone https://github.com/emarchoi/f1-cli.git
 
@@ -45,7 +45,7 @@ python game.py
 * **Formatted Terminal Tables:** Uses `tabulate` to render clean, readable, and properly aligned classification tables.
 
 ## Project Structure
-```
+```python
 f1-cli/
 ├── game_file/
 |   └── f1_cli_data.json    # Auto-generated save file storing live data (automatically added if do not exist)
