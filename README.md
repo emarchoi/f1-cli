@@ -1,8 +1,15 @@
 # F1 CLI-Game Simulator
 
-**F1 CLI-Game Simulation** is a simple and fun command-line Formula 1 championship simulator developed in Python as my final project for CS50's Introduction to Programming with Python (CS50P).
+**F1 CLI-Game Simulator** is a simple and fun command-line Formula 1 championship simulator developed as my final project for CS50's Introduction to Programming with Python (CS50P).
 
-The simulation models the latest Formula 1 season across 24 Grand Prix rounds, 11 constructors, and 22 drivers. Users can simulate full race weekends, complete with a qualifying session that awards starting grid bonuses and a Grand Prix race that computes total race times from track lap counts and base lap times—while tracking World Drivers' Championship (WDC) and World Constructors' Championship (WCC) points and titles across seasons.
+The simulation models the latest Formula 1 season across 24 Grand Prix rounds, 11 constructors, and 22 drivers. This command-line game can simulate full race weekends, complete with a qualifying session that awards starting grid bonuses and a Grand Prix race that computes total race times from track lap counts and base lap times—while tracking World Drivers' Championship (WDC) and World Constructors' Championship (WCC) points and titles across seasons.
+
+#### Development Background:
+- I originally developed this project in Java as a practice for Object-Oriented Programming (OOP). The initial implementation used data structures such as Arrays and ArrayLists, along with `.txt` files for data storage. However, the project was never completed, so I eventually decided to refactor it using Python.
+- The Python version retains the Object-Oriented Programming (OOP) architecture. However, I switched to `.json` files for data storage to make data insertion and retrieval easier and more efficient. Lastly, I incorporated the `tabulate` library to display cleanly formatted tables.
+
+#### Teck-Stack Used:
+1. Python
 
 #### To-do:
 - Requirements/Prerequisites
