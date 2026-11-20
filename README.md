@@ -21,7 +21,23 @@ The simulation models the latest Formula 1 season across 24 Grand Prix rounds, 1
 * **Formatted Terminal Tables:** Uses `tabulate` to render clean, readable, and properly aligned classification tables.
 
 ## Project Structure
-
+```
+f1-cli/
+├── game_file/
+|   └── f1_cli_data.json    # Auto-generated save file storing live data (automatically added if do not exist)
+|
+├── game_resources/
+|   ├── constructors.py     # Base 2026 constructor name, power, engine suppliers, and WCC counts
+|   ├── drivers.py          # Base 2026 driver lineups, skill ratings, and WDC counts
+|   └── tracks.py           # 24-round 2026 calendar with lap counts and base lap times
+|
+├── data_manager.py         # JSON save/load persistence and initial data seeding
+├── helper.py               # Time formatting and tabulate console display utilities
+├── models.py               # OOP data models (Driver, Constructor, Track, Championship)
+├── project.py              # Main entry point, CLI menu loop, and core simulation functions
+├── requirements.txt        # External Python dependencies (tabulate)
+└── test_project.py         # Automated pytest for core simulation functions
+```
 
 ## Requirements and Prerequisites:
 
