@@ -63,6 +63,6 @@ f1-cli/
 ```
 
 ## Intellectual Property
-> Formula 1, F1, FIA Formula One World Championship, team names, driver names, circuit names, and related marks are the registered trademarks and intellectual property of Formula One World Championship Limited, the Fédération Internationale de l'Automobile (FIA), and their respective owners.\
-> Driver skill ratings, constructor power values, and calendar data are inspired by publicly available resources from Formula 1 and EA Sports F1 (Electronic Arts Inc.).\
-> This software is a non-commercial, fan-made educational project and is not affiliated with, endorsed by, or sponsored by Formula 1, the FIA, or Electronic Arts.
+Formula 1, F1, FIA Formula One World Championship, team names, driver names, circuit names, and related marks are the registered trademarks and intellectual property of Formula One World Championship Limited, the Fédération Internationale de l'Automobile (FIA), and their respective owners.\
+Driver skill ratings, constructor power values, and calendar data are inspired by publicly available resources from Formula 1 and EA Sports F1 (Electronic Arts Inc.).\
+This software is a non-commercial, fan-made educational project and is not affiliated with, endorsed by, or sponsored by Formula 1, the FIA, or Electronic Arts.
