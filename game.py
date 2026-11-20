@@ -94,7 +94,7 @@ def main():
         else:
             print("Invalid choice, please try again.")
 
-def simulate_qualifying(championship, delay=5):
+def simulate_qualifying(championship, delay=3):
     if championship.current_round >= len(championship.tracks):
         return []
 
@@ -102,8 +102,8 @@ def simulate_qualifying(championship, delay=5):
     print(f"\n+{'-' * 70}+")
     print(f"| {'Simulating Qualifying at: ' + track.track_name:^68} |")
     print(f"+{'-' * 70}+") 
-    # if delay > 0:
-    #     countdown("Simulating Qualifying", delay)
+    if delay > 0:
+        countdown("Simulating Qualifying", delay)
 
     qualifying = []
     for driver in championship.drivers:
@@ -125,7 +125,7 @@ def simulate_qualifying(championship, delay=5):
 
     return qualifying
 
-def simulate_race(championship, quali_results=None, delay=10):
+def simulate_race(championship, quali_results=None, delay=5):
     if championship.current_round >= len(championship.tracks):
         return []
 
@@ -136,8 +136,8 @@ def simulate_race(championship, quali_results=None, delay=10):
     print(f"\n+{'-' * 70}+")
     print(f"| {'Simulating Race at: ' + track.track_name:^68} |")
     print(f"+{'-' * 70}+") 
-    # if delay > 0:
-    #     countdown("Simulating Race", delay)
+    if delay > 0:
+        countdown("Simulating Race", delay)
 
     quali_dict = {
         entry["driver"].name: (entry["grid_pos"], entry["grid_bonus"])
