@@ -4,8 +4,6 @@
 
 The simulation models the latest Formula 1 season across 24 Grand Prix rounds, 11 constructors, and 22 drivers. This command-line game can simulate full race weekends, complete with a qualifying session that awards starting grid bonuses and a Grand Prix race that computes total race times from track lap counts and base lap times—while tracking World Drivers' Championship (WDC) and World Constructors' Championship (WCC) points and titles across seasons.
 
-<br>
-
 # How to Play F1-CLI Game Simulator
 
 ### Quick Setup
@@ -29,8 +27,6 @@ pip install -r requirements.txt
 python game.py
 ```
 ---
-
-<br>
 
 ## Development Background
 - I originally developed this project in Java as a practice for Object-Oriented Programming (OOP). The initial implementation used data structures such as Arrays and ArrayLists, along with `.txt` files for data storage. However, the project was never completed, so I eventually decided to refactor it using Python.
@@ -66,7 +62,7 @@ f1-cli/
 └── requirements.txt        # External Python dependencies (tabulate)
 ```
 
-# Intellectual Property
-Formula 1, F1, FIA Formula One World Championship, team names, driver names, circuit names, and related marks are the registered trademarks and intellectual property of Formula One World Championship Limited, the Fédération Internationale de l'Automobile (FIA), and their respective owners.\
-Driver skill ratings, constructor power values, and calendar data are inspired by publicly available resources from Formula 1 and EA Sports F1 (Electronic Arts Inc.).\
-This software is a non-commercial, fan-made educational project and is not affiliated with, endorsed by, or sponsored by Formula 1, the FIA, or Electronic Arts.
+## Intellectual Property
+> Formula 1, F1, FIA Formula One World Championship, team names, driver names, circuit names, and related marks are the registered trademarks and intellectual property of Formula One World Championship Limited, the Fédération Internationale de l'Automobile (FIA), and their respective owners.\
+> Driver skill ratings, constructor power values, and calendar data are inspired by publicly available resources from Formula 1 and EA Sports F1 (Electronic Arts Inc.).\
+> This software is a non-commercial, fan-made educational project and is not affiliated with, endorsed by, or sponsored by Formula 1, the FIA, or Electronic Arts.
