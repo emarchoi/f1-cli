@@ -35,8 +35,7 @@ f1-cli/
 ├── helper.py               # Time formatting and tabulate console display utilities
 ├── models.py               # OOP data models (Driver, Constructor, Track, Championship)
 ├── project.py              # Main entry point, CLI menu loop, and core simulation functions
-├── requirements.txt        # External Python dependencies (tabulate)
-└── test_project.py         # Automated pytest for core simulation functions
+└── requirements.txt        # External Python dependencies (tabulate)
 ```
 
 ## Requirements and Prerequisites:
