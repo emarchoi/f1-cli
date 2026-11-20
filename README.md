@@ -4,14 +4,14 @@
 
 The simulation models the latest Formula 1 season across 24 Grand Prix rounds, 11 constructors, and 22 drivers. This command-line game can simulate full race weekends, complete with a qualifying session that awards starting grid bonuses and a Grand Prix race that computes total race times from track lap counts and base lap times—while tracking World Drivers' Championship (WDC) and World Constructors' Championship (WCC) points and titles across seasons.
 
-## Development Background:
+## Development Background
 - I originally developed this project in Java as a practice for Object-Oriented Programming (OOP). The initial implementation used data structures such as Arrays and ArrayLists, along with `.txt` files for data storage. However, the project was never completed, so I eventually decided to refactor it using Python.
 - The Python version retains the Object-Oriented Programming (OOP) architecture. However, I switched to `.json` files for data storage to make data insertion and retrieval easier and more efficient. Lastly, I incorporated the `tabulate` library to display cleanly formatted tables.
 
-## Teck-Stack Used:
+## Teck-Stack Used
 1. Python
 
-## Fun Features:
+## Fun Features
 * **Two-Stage Race Weekend Simulation:**
   * **Qualifying:** Evaluates each driver's skill, constructor power rating, and random variance to set the starting grid (`P1`–`P22`). Higher grid positions earn a tapered race score bonus (`+0.25` per spot ahead of last place).
   * **Grand Prix Race:** Combines driver skill, constructor power, qualifying grid bonus, and race-day variance to calculate each driver's pace relative to the circuit's base lap time (`track.time`) multiplied by total race laps (`track.laps`). Finishers are ranked by total race time (`H:MM:SS.mmm`) and awarded standard F1 points (`25-18-15-12-10-8-6-4-2-1`).
@@ -37,8 +37,31 @@ f1-cli/
 ├── project.py              # Main entry point, CLI menu loop, and core simulation functions
 └── requirements.txt        # External Python dependencies (tabulate)
 ```
+<br>
 
-## Requirements and Prerequisites:
+# How to Play F1-CLI Game Simulator
+
+### Quick Setup
+```
+# 1. Clone the repository
+git clone 
+
+# 2. Go to the project initial directory
+cd f1-cli
+
+# 3. Create a local virtual environment
+python -m venv .venv
+
+# 4. Activate the virtual environment
+./.venv/Scripts/activate
+
+# 5. Install tabulate dependency
+pip install -r requirements.txt
+
+# 6. Play the Game
+python f1-cli.py
+```
+
 
 
 #### To-do:
