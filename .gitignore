@@ -15,4 +15,4 @@ venv/
 env/
 
 # Project Specific
-f1_cli_data.json
+./game_file/f1_cli_data.json
