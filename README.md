@@ -32,9 +32,9 @@ f1-cli/
 |   └── tracks.py           # 24-round 2026 calendar with lap counts and base lap times
 |
 ├── data_manager.py         # JSON save/load persistence and initial data seeding
+├── game.py                 # Main entry point, CLI menu loop, and core simulation functions
 ├── helper.py               # Time formatting and tabulate console display utilities
 ├── models.py               # OOP data models (Driver, Constructor, Track, Championship)
-├── project.py              # Main entry point, CLI menu loop, and core simulation functions
 └── requirements.txt        # External Python dependencies (tabulate)
 ```
 <br>
