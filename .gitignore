@@ -14,5 +14,5 @@ htmlcov/
 venv/
 env/
 
-# Project Specific
+# File
 /game_file/f1_cli_data.json
